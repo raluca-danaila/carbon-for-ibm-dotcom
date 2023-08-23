@@ -459,8 +459,12 @@ class DDSTableOfContents extends HostListenerMixin(
       } else {
         targetY = elem.offsetTop - mobilePadding!;
       }
-
-      window.scrollTo(0, targetY);
+      
+      window.scrollTo({
+        top:targetY,
+        left: 0,
+        behavior:'smooth'
+      });
 
       elem.setAttribute('tabindex', '0');
       (elem as HTMLElement).focus({ preventScroll: true });
